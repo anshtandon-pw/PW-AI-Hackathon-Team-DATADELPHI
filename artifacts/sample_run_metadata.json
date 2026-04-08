@@ -1,0 +1,17 @@
+{
+  "sample_rows": 274517,
+  "sample_users": 207414,
+  "clustered_users": 207414,
+  "estimated_avoidable_coupon_spend": 439084.65625,
+  "avg_predicted_2026_bucket": 1.8439449071884155,
+  "clusters": [
+    "discount_independent",
+    "highly_discount_dependent",
+    "mildly_sensitive"
+  ],
+  "validation_bucket_accuracy": 0.907484107108457,
+  "validation_bucket_mae": 0.46257946445771525,
+  "actual_2026_available": false,
+  "actual_2026_rows": 0,
+  "actual_2026_users": 0
+}

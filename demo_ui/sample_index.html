@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2026 Coupon Predictor</title>
+  <link rel="stylesheet" href="/styles.css?v=3">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Sample 2026 Predictor</p>
+        <h1>Behavior-Based Discount Scoring</h1>
+        <p class="hero-text">
+          This screen predicts the recommended 2026 discount bucket for each user from 2024-2025 history, then compares it against historical reference behavior and optional actual 2026 discounts.
+        </p>
+      </div>
+      <div class="hero-panel">
+        <div id="hero-cards" class="hero-cards"></div>
+      </div>
+    </header>
+
+    <main class="main-grid">
+      <section class="panel controls-panel">
+        <div class="panel-head">
+          <h2>2026 User Scores</h2>
+          <p>Search by exact <code>userid</code> or filter by category, lead source, and sensitivity class to inspect the minimum discount likely needed in 2026.</p>
+        </div>
+        <div class="controls">
+          <input id="query-input" type="text" placeholder="Search exact userid, category, or cluster">
+          <select id="category-select"><option value="">All categories</option></select>
+          <select id="cluster-select"><option value="">All clusters</option></select>
+          <select id="lead-type-select"><option value="">All lead types</option></select>
+          <select id="source-group-select"><option value="">All source groups</option></select>
+          <select id="limit-select">
+            <option value="25">25 rows</option>
+            <option value="100">100 rows</option>
+            <option value="500">500 rows</option>
+            <option value="1000">1000 rows</option>
+          </select>
+          <button id="search-button" class="primary-button">Search</button>
+          <button id="download-button" type="button">Download Filtered CSV</button>
+        </div>
+        <div class="list-layout">
+          <div class="list-card">
+            <div class="list-head">
+              <h3>Users</h3>
+              <span id="result-count" class="muted-chip">0 users</span>
+            </div>
+            <div id="user-results" class="user-results"></div>
+          </div>
+          <div class="detail-card">
+            <div class="list-head">
+              <h3>User Detail</h3>
+              <span class="muted-chip">reference + 2026 bucket</span>
+            </div>
+            <div id="user-detail" class="empty-state">
+              Select a user to inspect the predicted 2026 discount bucket, the reasoning, and the expected saving versus historical behavior.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel two-up-panel">
+        <div class="panel-head">
+          <h2>Model Summary</h2>
+          <p>This is the high-level view of the 2026 discount scorer learned from the sample transaction data.</p>
+        </div>
+        <div class="two-up">
+          <div>
+            <h3>Sensitivity Classes</h3>
+            <div id="cluster-summary" class="bar-list"></div>
+          </div>
+          <div>
+            <h3>Data Quality</h3>
+            <div id="data-quality" class="metrics-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Category + Class Policy</h2>
+          <p>These rows define the conservative baseline bucket by exam category and discount sensitivity class.</p>
+        </div>
+        <div id="policy-table" class="table-shell"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/sample_app.js?v=1"></script>
+</body>
+</html>

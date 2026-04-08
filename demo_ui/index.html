@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Smart Coupon Engine Demo</title>
+  <link rel="stylesheet" href="/styles.css?v=2">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AI Hackathon Demo</p>
+        <h1>Smart Coupon Engine</h1>
+        <p class="hero-text">
+          Category-aware coupon recommendations, proof-confidence bands, and a simple way to inspect where discount burn can be reduced without pretending we have perfect causal proof.
+        </p>
+      </div>
+      <div class="hero-panel">
+        <div id="hero-cards" class="hero-cards"></div>
+      </div>
+    </header>
+
+    <main class="main-grid">
+      <section class="panel controls-panel">
+        <div class="panel-head">
+          <h2>Find Users</h2>
+          <p>Search by user id, category, or persona and inspect the recommendation logic.</p>
+        </div>
+        <div class="controls">
+          <input id="query-input" type="text" placeholder="Search userid, category, persona">
+          <select id="category-select">
+            <option value="">All categories</option>
+          </select>
+          <select id="persona-select">
+            <option value="">All personas</option>
+          </select>
+          <select id="proof-select">
+            <option value="">All proof labels</option>
+          </select>
+          <button id="search-button" class="primary-button">Search</button>
+        </div>
+        <div class="list-layout">
+          <div class="list-card">
+            <div class="list-head">
+              <h3>Recommendations</h3>
+              <span id="result-count" class="muted-chip">0 users</span>
+            </div>
+            <div id="user-results" class="user-results"></div>
+          </div>
+          <div class="detail-card">
+            <div class="list-head">
+              <h3>User Detail</h3>
+              <span class="muted-chip">Click a row</span>
+            </div>
+            <div id="user-detail" class="empty-state">
+              Select a user to inspect the recommended bucket, proof confidence, and category context.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel two-up-panel">
+        <div class="panel-head">
+          <h2>Proof View</h2>
+          <p>The model reports likely unnecessary, uncertain, and likely necessary discount bands instead of overstating certainty.</p>
+        </div>
+        <div class="two-up">
+          <div>
+            <h3>2025 Waste Bands</h3>
+            <div id="waste-analysis" class="bar-list"></div>
+          </div>
+          <div>
+            <h3>Validation Metrics</h3>
+            <div id="split-metrics" class="metrics-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2>Top Categories</h2>
+          <p>These are the categories with the highest modeled avoidable discount opportunity in the 2026 cohort.</p>
+        </div>
+        <div id="category-table" class="table-shell"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/app.js?v=2"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "input_path": "C:\\Users\\AnshTandon\\Documents\\AI Hackathon\\data\\raw.csv",
+  "rows_total": 1048437,
+  "train_rows": 795062,
+  "validation_rows": 109810,
+  "test_rows": 143565,
+  "categories": 69,
+  "constant_columns": [
+    "never_used_coupon"
+  ],
+  "test_expected_avoidable": 11981657.0,
+  "test_conservative_avoidable": 10989712.0,
+  "avg_recommended_bucket": 8.808448791503906
+}
